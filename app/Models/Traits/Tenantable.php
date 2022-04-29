@@ -10,12 +10,12 @@ trait Tenantable
 {
     protected static function bootTenantable()
     {
-        if(session()->has('tenant_id') && ! is_null(session()->get('tenant_id')))
+        if(checkTenantId())
         {
             static::addGlobalScope(new TenantScope);
 
             static::creating(function($model){
-                $model->tenant_id = session()->get('tenant_id');
+                $model->tenant_id = session('tenant_id');
             });
             
         }
