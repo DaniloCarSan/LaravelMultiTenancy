@@ -1,7 +1,7 @@
 <?php
 
 
-if(function_exists('checkTenantId')) 
+if( ! function_exists('checkTenantId')) 
 {
     function checkTenantId()
     {
